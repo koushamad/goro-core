@@ -85,7 +85,7 @@ func Fatal(message string, code int, err error) {
 	if err != nil {
 		e := exception.Exception{Message: message, Code: code, Err: err}
 		exceptionHandler.Handler(e)
-		log.Fatal(e.Err)
+		log.Fatal(e)
 	}
 }
 

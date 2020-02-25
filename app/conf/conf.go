@@ -1,6 +1,7 @@
 package conf
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -19,7 +20,7 @@ func Add(key string, config map[string]string) {
 
 func Get(key string) string {
 	keys := strings.Split(pars(key), ".")
-	return Configs[keys[0]][keys[1]]
+	return Configs[pars(keys[0])][pars(keys[1])]
 }
 
 func pars(key string) string {
@@ -46,7 +47,7 @@ func GetInt(key string) int {
 
 func GetBool(key string) bool {
 	keys := strings.Split(key, ".")
-	value, err := strconv.ParseBool(Configs[keys[0]][keys[1]])
+	value, err := strconv.ParseBool(Configs[pars(keys[0])][pars(keys[1])])
 	if err != nil {
 		return false
 	}
