@@ -2,9 +2,9 @@ package log
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/koushamad/goro-core/app/exception/throw"
+	"github.com/koushamad/goro-core/app/helper"
 	"github.com/koushamad/goro-core/config"
-	"github.com/koushamad/goro/app/exception/throw"
-	"github.com/koushamad/goro/app/helper"
 	"io"
 	"os"
 )
@@ -14,7 +14,7 @@ func Logger() gin.HandlerFunc {
 	return gin.LoggerWithFormatter(config.LogFormat)
 }
 
-func FileLogger()  {
+func FileLogger() {
 	gin.DisableConsoleColor()
 	file, err := os.Open(helper.LogPath())
 	if err != nil {

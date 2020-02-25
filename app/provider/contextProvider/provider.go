@@ -3,10 +3,10 @@ package contextProvider
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/koushamad/goro-app/app/provider/contextProvider"
-	"github.com/koushamad/goro/app/exception/throw"
-	"github.com/koushamad/goro/app/http/middleware"
-	"github.com/koushamad/goro/app/http/request"
-	"github.com/koushamad/goro/app/http/response"
+	"github.com/koushamad/goro-core/app/exception/throw"
+	"github.com/koushamad/goro-core/app/http/middleware"
+	"github.com/koushamad/goro-core/app/http/request"
+	"github.com/koushamad/goro-core/app/http/response"
 )
 
 func Init(ctx *gin.Context) {

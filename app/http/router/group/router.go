@@ -2,10 +2,10 @@ package group
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/koushamad/goro/app/http/middleware"
-	"github.com/koushamad/goro/app/http/request"
-	"github.com/koushamad/goro/app/http/response"
-	contextProvider2 "github.com/koushamad/goro/app/provider/contextProvider"
+	"github.com/koushamad/goro-core/app/http/middleware"
+	"github.com/koushamad/goro-core/app/http/request"
+	"github.com/koushamad/goro-core/app/http/response"
+	contextProvider2 "github.com/koushamad/goro-core/app/provider/contextProvider"
 )
 
 type (

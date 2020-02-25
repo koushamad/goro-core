@@ -2,11 +2,11 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/koushamad/goro/app/http/middleware"
-	"github.com/koushamad/goro/app/http/request"
-	"github.com/koushamad/goro/app/http/response"
-	"github.com/koushamad/goro/app/http/router/group"
-	contextProvider2 "github.com/koushamad/goro/app/provider/contextProvider"
+	"github.com/koushamad/goro-core/app/http/middleware"
+	"github.com/koushamad/goro-core/app/http/request"
+	"github.com/koushamad/goro-core/app/http/response"
+	"github.com/koushamad/goro-core/app/http/router/group"
+	contextProvider2 "github.com/koushamad/goro-core/app/provider/contextProvider"
 	"sync"
 )
 
@@ -99,7 +99,7 @@ func (router Router) Delete(path string, controller func(req *request.Request, r
 	})
 }
 
-func (router Router)Any(controller func(req *request.Request, res *response.Response))  {
+func (router Router) Any(controller func(req *request.Request, res *response.Response)) {
 	engine.NoRoute(func(ctx *gin.Context) {
 		contextProvider2.Init(ctx)
 		controller(request.Load(), response.Load())

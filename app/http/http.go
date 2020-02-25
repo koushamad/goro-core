@@ -3,11 +3,11 @@ package http
 import (
 	"github.com/fatih/color"
 	"github.com/gin-gonic/gin"
-	"github.com/koushamad/goro/app/exception/throw"
+	"github.com/koushamad/goro-core/app/exception/throw"
 	"sync"
 )
 
-type(
+type (
 	HTTP struct {
 		Throw *throw.Throw
 	}
@@ -15,18 +15,18 @@ type(
 
 var (
 	Engine *gin.Engine
-	once sync.Once
-	self *HTTP
+	once   sync.Once
+	self   *HTTP
 )
 
-func Boot(engine *gin.Engine)  {
+func Boot(engine *gin.Engine) {
 	once.Do(func() {
 		Engine = engine
 	})
 	Init()
 }
 
-func Init()  {
+func Init() {
 	self = &HTTP{
 		throw.Load(),
 	}
@@ -36,7 +36,7 @@ func Load() *HTTP {
 	return self
 }
 
-func (http *HTTP)Serve(port string)  {
+func (http *HTTP) Serve(port string) {
 	color.Green("GOTO Start to serving on port " + port)
 	throw.Fatal("Cannot serve Goro", 112, Engine.Run(port))
 }

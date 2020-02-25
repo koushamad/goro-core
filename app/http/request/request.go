@@ -2,7 +2,7 @@ package request
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/koushamad/goro/app/exception/throw"
+	"github.com/koushamad/goro-core/app/exception/throw"
 	"sync"
 )
 
@@ -29,7 +29,7 @@ func Boot(egn *gin.Engine) {
 	})
 }
 
-func Init(ctx *gin.Context)  {
+func Init(ctx *gin.Context) {
 	self = &Request{}
 	Throw = throw.Load()
 	self.Context = ctx

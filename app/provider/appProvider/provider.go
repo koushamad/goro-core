@@ -3,16 +3,16 @@ package appProvider
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/koushamad/goro-app/app/provider/appProvider"
-	"github.com/koushamad/goro/app/console"
-	"github.com/koushamad/goro/app/exception/throw"
-	"github.com/koushamad/goro/app/http"
-	"github.com/koushamad/goro/app/http/request"
-	"github.com/koushamad/goro/app/http/response"
-	"github.com/koushamad/goro/app/http/router"
-	routeProvider2 "github.com/koushamad/goro/app/provider/routeProvider"
+	"github.com/koushamad/goro-core/app/console"
+	"github.com/koushamad/goro-core/app/exception/throw"
+	"github.com/koushamad/goro-core/app/http"
+	"github.com/koushamad/goro-core/app/http/request"
+	"github.com/koushamad/goro-core/app/http/response"
+	"github.com/koushamad/goro-core/app/http/router"
+	routeProvider2 "github.com/koushamad/goro-core/app/provider/routeProvider"
 )
 
-func Boot(egn *gin.Engine)  {
+func Boot(egn *gin.Engine) {
 	response.Boot(egn)
 	throw.Boot(egn)
 	request.Boot(egn)
@@ -23,10 +23,10 @@ func Boot(egn *gin.Engine)  {
 	appProvider.Boot(egn)
 }
 
-func Run()  {
+func Run() {
 	routeProvider2.Routes(router.Load())
 }
 
-func Kill()  {
+func Kill() {
 	appProvider.Kill()
 }

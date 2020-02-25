@@ -2,7 +2,7 @@ package helper
 
 import (
 	"github.com/joho/godotenv"
-	"github.com/koushamad/goro/app/exception/throw"
+	"github.com/koushamad/goro-core/app/exception/throw"
 	"os"
 	"strconv"
 	"strings"

@@ -2,14 +2,14 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/koushamad/goro/app/exception/throw"
+	"github.com/koushamad/goro-core/app/exception/throw"
 	"sync"
 )
 
 type (
 	Middleware struct {
 		Context *gin.Context
-		Throw *throw.Throw
+		Throw   *throw.Throw
 	}
 )
 
@@ -29,7 +29,7 @@ func Boot(egn *gin.Engine) {
 func Init(ctx *gin.Context) *Middleware {
 	self = &Middleware{
 		Context: ctx,
-		Throw: throw.Load(),
+		Throw:   throw.Load(),
 	}
 	return self
 }
