@@ -19,7 +19,10 @@ func Add(key string, config map[string]string) {
 
 func Get(key string) string {
 	keys := strings.Split(pars(key), ".")
-	return Configs[pars(keys[0])][pars(keys[1])]
+	if val, ok := Configs[pars(keys[0])][pars(keys[1])]; ok {
+		return val
+	}
+	return ""
 }
 
 func pars(key string) string {
